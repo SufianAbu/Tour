@@ -1,0 +1,88 @@
+{% extends 'ag_base/backend.html.twig' %}
+
+{% block container %}
+
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+
+        {% include 'menu.html.twig' with {'option': 'courts_create'} %}
+
+        <!-- Right side column. Contains the navbar and content of the page -->
+        <aside class="right-side">                
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    Ajouter un court
+                </h1>
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+
+                {% include 'ag_alerts.html.twig' %}
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        {{ form_start(form, {'method': 'POST'}) }}
+                            {{ form_errors(form) }}
+
+                            <div class="box box-info">
+                                <div class="box-header">
+                                    <h3 class="box-title"></h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+
+								<div class='form-group'>
+                                        {{ form_label(form.CourtName,"Nom du court") }}
+                                        {{ form_widget(form.CourtName, { attr: { 'class': 'form-control' }}) }}
+                                    </div>
+
+                                    <div class='form-group'>
+                                        {{ form_label(form.CourtZone,"Zone") }}
+                                        {{ form_widget(form.CourtZone, { attr: { 'class': 'form-control' }}) }}
+                                    </div>
+
+                                    <div class='form-group'>
+                                        {{ form_label(form.CourtAddress,"Adresse") }}
+                                        {{ form_widget(form.CourtAddress, { attr: { 'class': 'form-control' }}) }}
+                                    </div>
+
+                                    <div class='form-group'>
+                                        {{ form_label(form.CourtSurface,"Surface en m²") }}
+                                        {{ form_widget(form.CourtSurface, { attr: { 'class': 'form-control' }}) }}
+                                    </div>
+
+                                    <!--Availability devrait être un select-->
+
+                                    <div class='form-group'>
+                                        {{ form_label(form.CourtAvailability,"Disponibilité") }}
+                                        {{ form_widget(form.CourtAvailability, { attr: { 'class': 'form-control' }}) }}
+                                    </div>
+
+                                    <div class='form-group'>
+                                        {{ form_label(form.CourtOwner,"Propriétaire") }}
+                                        {{ form_widget(form.CourtOwner, { attr: { 'class': 'form-control' }}) }}
+                                    </div>
+
+                                                  
+
+                                </div><!-- /.box-body -->
+
+                                {{ form_rest(form) }}
+
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                </div>
+
+                            </div><!-- /.box -->
+                        {{ form_end(form) }}
+
+
+                    </div>
+                </div>
+
+            </section><!-- /.content -->
+        </aside><!-- /.right-side -->
+    </div><!-- ./wrapper -->
+
+{% endblock %}

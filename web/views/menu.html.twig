@@ -1,0 +1,22 @@
+{% extends 'ag_menu.html.twig' %}
+
+{% block menu %}
+<li class="{% if option is defined and (option == 'users_list' or option == 'users_create' or option == 'users_edit') %}active{% endif %}">
+    <a href="{{ path('users_list') }}">
+        <i class="fa fa-folder-o"></i>
+         Gestion des utilisateurs
+    </a>
+</li>
+<li class="{% if option is defined and (option == 'courts_list' or option == 'courts_create' or option == 'courts_edit') %}active{% endif %}">
+    <a href="{{ path('courts_list') }}">
+        <i class="fa fa-folder-o"></i>
+         Gestion des courts 
+    </a>
+</li>
+<li class="{% if option is defined and (option == 'tournaments_list' or option == 'tournaments_create' or option == 'tournaments_edit') %}active{% endif %}">
+    <a href="{{ path('tournaments_list') }}">
+        <i class="fa fa-folder-o"></i>
+         Gestion des tournois
+    </a>
+</li>
+{% endblock %}
